@@ -1,5 +1,5 @@
 {
-  "name": "bolao-admin",
+  "name": "lead-farma-admin",
   "version": "0.1.0",
   "private": true,
   "homepage": "/admin",
@@ -22,7 +22,9 @@
     "build-stg": "REACT_APP_STAGE=stg react-scripts build",
     "build-prd": "REACT_APP_STAGE=prd react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build-dev",
+    "deploy": "gh-pages -d build-dev"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }

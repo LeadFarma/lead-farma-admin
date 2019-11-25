@@ -16,8 +16,8 @@ export default () => {
     switch (type) {
       case GET_LIST: {
         const queryStringParameters = {
-          pagination_page: params.pagination.page,
-          pagination_perPage: params.pagination.perPage,
+          page: params.pagination.page,
+          per_page: params.pagination.perPage,
           sort_field: params.sort.field,
           sort_order: params.sort.order,
           filter_field: Object.keys(params.filter)[0],
@@ -58,7 +58,7 @@ export default () => {
   };
 
   const convertHTTPResponse = (response, type, resource, params) => {
-    const data = response.data.data;
+    const data = response.data.items;
 
     switch (type) {
       case GET_LIST:

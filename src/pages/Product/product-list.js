@@ -26,10 +26,12 @@ const ProductList = props => {
     <List bulkActionButtons={false} {...props} actions={<CustomActions />} >
       <Datagrid rowClick="show" >
       {/* {console.log(props)} */}
-        <TextField source="entity_id" label="Concurso(ID)" />
-        <FunctionField render={concurso=><Moment format={"DD/MM/YYYY HH:mm"}>{concurso.data_inicio}</Moment>} label="Início" />
+        <TextField source="id" label="Produto(ID)" />
+        <TextField source="name" label="Nome" />
+        <TextField source="description" label="Desrição" />
+        {/* <FunctionField render={concurso=><Moment format={"DD/MM/YYYY HH:mm"}>{concurso.data_inicio}</Moment>} label="Início" />
         <FunctionField render={concurso=><Moment format={"DD/MM/YYYY HH:mm"}>{concurso.data_fim}</Moment>} label="Fim" />
-        <FunctionField render={concurso => `R$ ${(concurso.premiacao/100).toFixed(2) || 0} `} label="Premiação" />
+        <FunctionField render={concurso => `R$ ${(concurso.premiacao/100).toFixed(2) || 0} `} label="Premiação" /> */}
         <EditButton />
         <DeleteButton />
       </Datagrid>
