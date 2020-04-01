@@ -1,7 +1,6 @@
 import React from "react";
 import {
   NumberInput,
-  DisabledInput,
   DateInput,
   Create,
   TabbedForm,
@@ -16,7 +15,6 @@ const ConcursoCreate = props => {
     <Create {...props}>
       <TabbedForm>
         <FormTab label="concurso">
-          <DisabledInput source="entity_id" label="ID" />
           <NumberInput source="premiacao" label="Premiação" />
           <DateInput source="data_inicio" label="Data Início" />
           <DateInput source="data_fim" label="Data Fim" />

@@ -2,19 +2,21 @@
   "name": "lead-farma-admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/admin",
+  "homepage": "https://leadfarma.github.io/lead-farma-admin/",
   "dependencies": {
     "aws-amplify": "^1.2.4",
-    "axios": "^0.19.0",
+    "axios": "^0.19.1",
     "material-ui": "^0.20.2",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
     "node-sass": "^4.13.0",
-    "react": "^16.11.0",
-    "react-admin": "^2.9.8",
-    "react-dom": "^16.11.0",
+    "prop-types": "^15.7.2",
+    "ra-data-json-server": "^3.0.3",
+    "react": "^16.12.0",
+    "react-admin": "^3.0.3",
+    "react-dom": "^16.12.0",
     "react-moment": "^0.9.6",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -24,7 +26,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build-dev",
-    "deploy": "gh-pages -d build-dev"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"

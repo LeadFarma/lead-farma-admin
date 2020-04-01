@@ -4,34 +4,38 @@ import {
   Datagrid,
   List,
   TextField,
-  FunctionField,
+  // FunctionField,
   DeleteButton,
   EditButton,
   CardActions,
   CreateButton,
   RefreshButton
 } from "react-admin";
-import 'moment-timezone';
-import Moment from 'react-moment';
-import 'moment/locale/pt-br';
+import "moment-timezone";
+// import Moment from "react-moment";
+import "moment/locale/pt-br";
 // import CustomDelete from "../../components/CustomDelete/CustomDelete";
 
-const CustomActions = ({basePath}) => <CardActions>
-                                          <CreateButton basePath={basePath} />
-                                          <RefreshButton />
-                                      </CardActions>
+const CustomActions = ({ basePath }) => (
+  <CardActions>
+    <CreateButton basePath={basePath} />
+    <RefreshButton />
+  </CardActions>
+);
 
 const ProductList = props => {
   return (
-    <List bulkActionButtons={false} {...props} actions={<CustomActions />} >
-      <Datagrid rowClick="show" >
-      {/* {console.log(props)} */}
+    <List
+      bulkActionButtons={false}
+      title="Produtos"
+      {...props}
+      actions={<CustomActions />}
+    >
+      <Datagrid rowClick="show">
         <TextField source="id" label="Produto(ID)" />
         <TextField source="name" label="Nome" />
-        <TextField source="description" label="Desrição" />
-        {/* <FunctionField render={concurso=><Moment format={"DD/MM/YYYY HH:mm"}>{concurso.data_inicio}</Moment>} label="Início" />
-        <FunctionField render={concurso=><Moment format={"DD/MM/YYYY HH:mm"}>{concurso.data_fim}</Moment>} label="Fim" />
-        <FunctionField render={concurso => `R$ ${(concurso.premiacao/100).toFixed(2) || 0} `} label="Premiação" /> */}
+        <TextField source="description" label="Descrição" />
+        <TextField source="category.name" label="Categoria" />
         <EditButton />
         <DeleteButton />
       </Datagrid>
