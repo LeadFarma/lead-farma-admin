@@ -1,32 +1,24 @@
 {
-  "name": "lead-farma-admin",
+  "name": "landing-admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://leadfarma.github.io/lead-farma-admin/",
   "dependencies": {
-    "aws-amplify": "^1.2.4",
-    "axios": "^0.19.1",
-    "material-ui": "^0.20.2",
-    "moment": "^2.24.0",
-    "moment-timezone": "^0.5.27",
-    "node-sass": "^4.13.0",
-    "prop-types": "^15.7.2",
-    "ra-data-json-server": "^3.0.3",
-    "react": "^16.12.0",
-    "react-admin": "^3.0.3",
-    "react-dom": "^16.12.0",
-    "react-moment": "^0.9.6",
-    "react-scripts": "3.3.0"
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "firebase": "^7.14.0",
+    "ra-input-rich-text": "^3.3.1",
+    "react": "^16.13.1",
+    "react-admin": "^3.4.1",
+    "react-admin-firebase": "^3.1.5",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-dev": "REACT_APP_STAGE=dev react-scripts build",
-    "build-stg": "REACT_APP_STAGE=stg react-scripts build",
-    "build-prd": "REACT_APP_STAGE=prd react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build-dev",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,8 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^2.0.1"
   }
 }

@@ -1,37 +1,70 @@
-import React from "react";
+import * as React from "react";
+import {
+  ProductList,
+  ProductShow,
+  ProductCreate,
+  ProductEdit,
+} from "./pages/Product";
+import {
+  ClientList,
+  ClientShow,
+  ClientCreate,
+  ClientEdit,
+} from "./pages/Client";
+import {
+  LandingList,
+  LandingShow,
+  LandingCreate,
+  LandingEdit,
+} from "./pages/Landing";
 import { Admin, Resource } from "react-admin";
+import {
+  FirebaseDataProvider,
+  FirebaseAuthProvider,
+} from "react-admin-firebase";
+import CustomLoginPage from "./CustomLoginPage";
 
-import ProductList from "./pages/Product/product-list";
-import ProductCreateOrEdit from "./pages/Product/product-create-or-update";
+import { firebaseConfig as config } from "./FIREBASE_CONFIG";
 
-import CategoryList from "./pages/Category/category-list";
+const options = {
+  logging: true,
+  rootRef: "root_collection/some_document",
+};
+const dataProvider = FirebaseDataProvider(config, options);
+const authProvider = FirebaseAuthProvider(config, options);
 
-import "./style.scss";
-import dataProvider from "./services/data-provider";
-// import authProvider from "./services/auth-provider";
-
-function App() {
-  return (
-    <Admin dataProvider={dataProvider()}>
-      {/* <Admin dataProvider={dataProvider()} authProvider={authProvider}> */}
-      <Resource
-        name="products"
-        list={ProductList}
-        edit={ProductCreateOrEdit}
-        create={ProductCreateOrEdit}
-        // show={ConcursoShow}
-      />
-      <Resource name="categories" list={CategoryList} />
-      {/* <Resource
-          name="user"
-          list={UserList}
-          edit={UserEdit}
-          show={UserShow}
-          create={UserCreate}
+class App extends React.Component {
+  render() {
+    return (
+      <Admin
+        loginPage={CustomLoginPage}
+        dataProvider={dataProvider}
+        authProvider={authProvider}
+      >
+        <Resource
+          name="products"
+          list={ProductList}
+          show={ProductShow}
+          create={ProductCreate}
+          edit={ProductEdit}
         />
-      */}
-    </Admin>
-  );
+        <Resource
+          name="clients"
+          list={ClientList}
+          show={ClientShow}
+          create={ClientCreate}
+          edit={ClientEdit}
+        />
+        <Resource
+          name="landings"
+          list={LandingList}
+          show={LandingShow}
+          create={LandingCreate}
+          edit={LandingEdit}
+        />
+      </Admin>
+    );
+  }
 }
 
 export default App;
