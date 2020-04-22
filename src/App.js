@@ -4,6 +4,8 @@ import { Admin, Resource } from "react-admin";
 import ProductList from "./pages/Product/product-list";
 import ProductCreateOrEdit from "./pages/Product/product-create-or-update";
 
+import CategoryList from "./pages/Category/category-list";
+
 import "./style.scss";
 import dataProvider from "./services/data-provider";
 // import authProvider from "./services/auth-provider";
@@ -19,7 +21,7 @@ function App() {
         create={ProductCreateOrEdit}
         // show={ConcursoShow}
       />
-      <Resource name="categories" />
+      <Resource name="categories" list={CategoryList} />
       {/* <Resource
           name="user"
           list={UserList}

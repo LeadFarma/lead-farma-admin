@@ -13,17 +13,19 @@ export default () => {
       case GET_LIST: {
         const queryStringParameters = {
           pagination_page: params.pagination.page,
-          pagination_perPage: params.pagination.perPage,
+          pagination_per_page: params.pagination.perPage,
           sort_field: params.sort.field,
           sort_order: params.sort.order,
           filter_field: Object.keys(params.filter)[0],
           filter_value: Object.values(params.filter)[0]
         };
 
-        Object.keys(queryStringParameters).forEach(key => {
-          if (queryStringParameters[key] && queryStringParameters[key] !== "id")
-            options.queryStringParameters[key] = queryStringParameters[key];
-        });
+        options.queryStringParameters = queryStringParameters;
+
+        // Object.keys(queryStringParameters).forEach(key => {
+        //   if (queryStringParameters[key] && queryStringParameters[key] !== "id")
+        //     options.queryStringParameters[key] = queryStringParameters[key];
+        // });
 
         method = "GET";
         break;
@@ -66,18 +68,18 @@ export default () => {
 
     switch (type) {
       case GET_LIST:
-        // if (!response.headers.hasOwnProperty("content-range")) {
-        //   throw new Error(
-        //     "The Content-Range header is missing in the HTTP Response. The simple REST data provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare Content-Range in the Access-Control-Expose-Headers header?"
-        //   );
-        // }
+        if (!response.headers.hasOwnProperty("content-range")) {
+          throw new Error(
+            "The Content-Range header is missing in the HTTP Response. The simple REST data provider expects responses for lists of resources to contain this header with the total number of results to build the pagination. If you are using CORS, did you declare Content-Range in the Access-Control-Expose-Headers header?"
+          );
+        }
         return {
           data: data.map(value => ({ id: value._id, ...value })),
-          total: data.length
-          // total: parseInt(
-          //   response.headers["content-range"].split("/").pop(),
-          //   10
-          // )
+          // total: data.length
+          total: parseInt(
+            response.headers["content-range"].split("/").pop(),
+            10
+          )
         };
       case GET_ONE:
         console.log(response);

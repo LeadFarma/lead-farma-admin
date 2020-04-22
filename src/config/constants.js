@@ -1,12 +1,13 @@
 const STAGES = {
   dev: {
-    BASE_URL: "http://lead-api-express-dev.herokuapp.com/api/v1/"
+    BASE_URL: "https://lead-api-express.herokuapp.com/api/v1/"
   },
   stg: {
-    BASE_URL: "http://leadfarma.com.br/api/v1/"
+    BASE_URL: "https://lead-api-express.herokuapp.com/api/v1/"
+    // BASE_URL: "http://leadfarma.com.br/api/v1/"
   },
   prd: {
-    BASE_URL: "http://leadfarma.com.br/api/v1/"
+    BASE_URL: "https://lead-api-express.herokuapp.com/api/v1/"
   }
 };
 
