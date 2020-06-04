@@ -17,9 +17,6 @@ import {
   EditButton,
   DeleteButton,
   AutocompleteInput,
-  FileField,
-  FileInput,
-  ImageField,
   ArrayInput,
   SimpleFormIterator,
   ArrayField,
@@ -82,13 +79,19 @@ export const LandingShow = (props) => (
 export const LandingCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <ReferenceInput label="Cliente" source="client" reference="clients">
+      <ReferenceInput
+        label="Cliente"
+        source="client"
+        reference="clients"
+        filterToQuery={(searchText) => ({ name: searchText })}
+      >
         <AutocompleteInput optionText="name" />
       </ReferenceInput>
       <ReferenceInput
         label="Produto em destaque"
         source="highlight.product"
         reference="products"
+        filterToQuery={(searchText) => ({ name: searchText })}
       >
         <AutocompleteInput optionText="name" />
       </ReferenceInput>
@@ -96,9 +99,18 @@ export const LandingCreate = (props) => (
         source="highlight.price"
         label="Preço do produto em destaque"
       />
-      <ArrayInput source="products" label="Lista de produtos">
+      <ArrayInput
+        source="products"
+        label="Lista de produtos"
+        filterToQuery={(searchText) => ({ name: searchText })}
+      >
         <SimpleFormIterator>
-          <ReferenceInput label="Produto" source="product" reference="products">
+          <ReferenceInput
+            label="Produto"
+            source="product"
+            reference="products"
+            filterToQuery={(searchText) => ({ name: searchText })}
+          >
             <AutocompleteInput optionText="name" />
           </ReferenceInput>
           <TextInput source="price" label="Preço do produto" />
@@ -111,13 +123,19 @@ export const LandingCreate = (props) => (
 export const LandingEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
-      <ReferenceInput label="Cliente" source="client" reference="clients">
+      <ReferenceInput
+        label="Cliente"
+        source="client"
+        reference="clients"
+        filterToQuery={(searchText) => ({ name: searchText })}
+      >
         <AutocompleteInput optionText="name" />
       </ReferenceInput>
       <ReferenceInput
         label="Produto em destaque"
         source="highlight.product"
         reference="products"
+        filterToQuery={(searchText) => ({ name: searchText })}
       >
         <AutocompleteInput optionText="name" />
       </ReferenceInput>
@@ -127,7 +145,12 @@ export const LandingEdit = (props) => (
       />
       <ArrayInput source="products" label="Lista de produtos">
         <SimpleFormIterator>
-          <ReferenceInput label="Produto" source="product" reference="products">
+          <ReferenceInput
+            label="Produto"
+            source="product"
+            reference="products"
+            filterToQuery={(searchText) => ({ name: searchText })}
+          >
             <AutocompleteInput optionText="name" />
           </ReferenceInput>
           <TextInput source="price" label="Preço do produto" />

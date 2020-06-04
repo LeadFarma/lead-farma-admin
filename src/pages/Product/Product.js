@@ -10,20 +10,15 @@ import {
   Filter,
   SimpleShowLayout,
   SimpleForm,
-  ReferenceField,
-  ReferenceInput,
   TextField,
   TextInput,
   ShowButton,
   EditButton,
   DeleteButton,
-  RichTextField,
-  SelectInput,
   FileField,
   FileInput,
   ImageField,
 } from "react-admin";
-import RichTextInput from "ra-input-rich-text";
 
 const ProductFilter = (props) => (
   <Filter {...props}>
