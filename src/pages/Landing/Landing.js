@@ -42,6 +42,7 @@ export const LandingList = (props) => (
       >
         <TextField source="name" />
       </ReferenceField>
+      <TextField source="id" />
 
       <ShowButton label="" />
       <EditButton label="" />

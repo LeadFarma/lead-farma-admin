@@ -30,7 +30,7 @@ export const ClientList = (props) => (
   <List {...props} filters={<ClientFilter />}>
     <Datagrid>
       <TextField source="name" />
-      <ImageField source="logo.src" />
+      <TextField source="pixel" />
       <ShowButton label="" />
       <EditButton label="" />
       <DeleteButton label="" redirect={false} />
@@ -51,7 +51,7 @@ export const ClientCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="name" />
-      <TextInput source="facebookKey" />
+      <TextInput source="pixel" />
       <TextInput source="whatsapp" />
       <TextInput source="phone" />
       <TextInput type="color" source="primaryColor" />
@@ -67,7 +67,7 @@ export const ClientEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
       <TextInput source="name" />
-      <TextInput source="facebookKey" />
+      <TextInput source="pixel" />
       <TextInput source="whatsapp" />
       <TextInput source="phone" />
       <TextInput type="color" source="primaryColor" />
